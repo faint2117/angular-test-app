@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar class="top-bar" color="primary">
+      <span>ToDo-App</span>
+      <mat-form-field>
+        <mat-label>Users</mat-label>
+        <mat-select (selectionChange)="onUserChange($event)">
+          <mat-option value="Admin">
+            Admin
+          </mat-option>
+          <mat-option value="Regular">
+            Regular
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="main-content">
+      <ng-content>
+      </ng-content>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,36 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 1.5vh;
+
+    .left-side {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-grow: 1;
+
+        .icon {
+            padding-right: 2rem;
+        }
+
+        .info {
+            h4,p {
+                margin: 0;
+            }
+
+            .complete-section {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 1rem 0;
+            }
+        }
+    }
+}
+
+.add-container {
+    display: flex;
+    flex-direction: row-reverse;
+}

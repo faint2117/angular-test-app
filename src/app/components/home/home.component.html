@@ -1,0 +1,53 @@
+<h1>ToDo List:</h1>
+
+
+<ng-container *ngIf="loaded; else elseTemplate">
+  <div class="content" *ngFor="let toDo of toDos; let i=index">
+    <div class="left-side">
+      <div class="icon">
+        <i class="material-icons">
+          watch_later
+        </i>
+      </div>
+      <div class="info">
+        <h4 mat-line>{{toDo.taskDescription}}</h4>
+        <div class="complete-section">
+          <span>Completed: </span>
+          <ng-container *ngIf="toDo.isCompleted; else elseTemplate">
+            <i class="material-icons">
+              check_box
+            </i>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <i class="material-icons">
+              check_box_outline_blank
+            </i>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <i *ngIf="authService.isAdmin | async" class="material-icons clickable" (click)="openEditDialog(toDo)">
+        edit
+      </i>
+      <i class="material-icons clickable" (click)="delete(i)">
+        delete
+      </i>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  
+  <div class="add-container">
+    <button mat-mini-fab color="accent" (click)="openAddDialog()">
+      +
+    </button>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <mat-progress-spinner
+    class="example-margin"
+    color="accent"
+    mode="indeterminate"
+  >
+  </mat-progress-spinner>
+</ng-template>

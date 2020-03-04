@@ -1,0 +1,18 @@
+<div class="form-container">
+    <form [formGroup]="toDoForm" (ngSubmit)="submitForm()" novalidate>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Task Description" formControlName="taskDescription">
+        </mat-form-field>
+        <div class="form-field" *ngIf="toDoEntity">
+            <mat-checkbox formControlName="isCompleted">Completed?</mat-checkbox>
+        </div>
+        <div class="button-wrapper">
+            <button type="button" (click)="cancel()" mat-flat-button color="warn">
+                Cancel
+            </button>
+            <button mat-flat-button color="primary" [disabled]="toDoForm.pristine || !toDoForm.valid">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
